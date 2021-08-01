@@ -19,7 +19,7 @@
               </div>
               <div class="expire" [ngClass]="{ 'selected':isExpire}">
                 <mat-label class="cardLabel"> Expires </mat-label>
-                <h3>{{selectedMonth}} / {{selectedYear}}</h3>
+                <h3>{{selectedMonth || "MM"}} / {{selectedYear || "YY"}}</h3>
               </div>
             </div>
           </div>
@@ -49,14 +49,14 @@
       <br>
       <mat-form-field style="width: 95%;">
         <label>Card Holders </label>
-        <input matInput name="cardHolder" class="input" required (keydown)="validateStringInput($event)" (focus)="isCardHolder=true" [(ngModel)]="name"
-          (focusout)="isCardHolder=false">
+        <input matInput name="cardHolder" class="input" required (keydown)="validateStringInput($event)"
+          (focus)="isCardHolder=true" [(ngModel)]="name" (focusout)="isCardHolder=false">
       </mat-form-field>
     </form>
     <div style="display: flex;margin: 0px 10px;">
       <div style="width: -webkit-fill-available; text-align: left; margin-top: 20px;">
         <label>Expiration Date </label><br>
-        <mat-form-field class="dropdownStyle" >
+        <mat-form-field class="dropdownStyle">
           <mat-label>Month</mat-label>
           <mat-select [(value)]="selectedMonth" (focus)="isExpire=true" (focusout)="isExpire=false">
             <mat-option *ngFor="let month of months" [value]="month.number">
@@ -75,12 +75,12 @@
       </div>
       <mat-form-field style="width: 25%;">
         <label style="color: black;">CVV </label><br>
-        <input matInput class="cvvInput" (keydown)="validateInput($event,cvv.length,3)" required (focus)="state='flipped'"
-          (focusout)='state = "default"' [(ngModel)]="cvv" pattern=".{4}">
+        <input matInput class="cvvInput" (keydown)="validateInput($event,cvv.length,3)" required
+          (focus)="state='flipped'" (focusout)='state = "default"' [(ngModel)]="cvv" pattern=".{4}">
       </mat-form-field>
     </div>
 
-    <button mat-button>SUBMIT</button>
+    <button mat-button (click)="submit()">SUBMIT</button>
 
   </fieldset>
 </div>

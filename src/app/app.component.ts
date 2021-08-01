@@ -34,8 +34,8 @@ interface DateFormat {
 })
 export class AppComponent {
   state = "default"
-  selectedMonth: string = "MM";
-  selectedYear: string = "YY";
+  selectedMonth: string ;
+  selectedYear: string ;
   isCardHolder: boolean = false;
   isExpire: boolean = false;
   isNumber: boolean = false;
@@ -144,5 +144,12 @@ export class AppComponent {
 
   openSnackBar(message: string) {
     this._snackBar.open(message, "", { duration: 1000 });
+  }
+
+  submit() {
+    if ( this.cardNumber.indexOf('#')<0 && this.name.trim().length>0 && this.selectedMonth && this.selectedYear && this.cvv.length==4)
+      this.openSnackBar("Data Submitted Successfully");
+    else
+      this.openSnackBar("Incomplete Data");
   }
 }
