@@ -57,7 +57,7 @@
     <div style="display: flex;margin: 0px 10px;">
       <div style="width: -webkit-fill-available; text-align: left; margin-top: 20px;">
         <label>Expiration Date </label><br>
-        <mat-form-field class="dropdownStyle">
+        <mat-form-field class="dropdownStyle" >
           <mat-label>Month</mat-label>
           <mat-select [(value)]="selectedMonth" (focus)="isExpire=true" (focusout)="isExpire=false">
             <mat-option *ngFor="let month of months" [value]="month.number">
