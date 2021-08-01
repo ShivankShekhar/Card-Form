@@ -7,7 +7,6 @@
             <div class="frontUpper">
               <img src="../assets/chip.png" class="chip">
               <div class="spacer"></div>
-              <!-- <img name="cardTypeLogo" src="../assets/visa.png" (click)= "getimg()" class="chip"> -->
               <img name="cardTypeLogo" src="../assets/{{cardType||'visa' | lowercase}}.png" class="cardimg">
             </div>
             <div class="frontMid">
@@ -76,7 +75,7 @@
       </div>
       <mat-form-field style="width: 25%;">
         <label style="color: black;">CVV </label><br>
-        <input matInput class="cvvInput" (keydown)="validateInput($event,cvv.length)" required (focus)="state='flipped'"
+        <input matInput class="cvvInput" (keydown)="validateInput($event,cvv.length,3)" required (focus)="state='flipped'"
           (focusout)='state = "default"' [(ngModel)]="cvv" pattern=".{4}">
       </mat-form-field>
     </div>
