@@ -137,6 +137,7 @@
     border-radius: 5px;
     padding: 10px;
     margin: 10px 0px;
+    height: 25px;
 }
 
 h3 {
@@ -159,12 +160,16 @@ button {
 .dropdownStyle {
     border: solid;
     color: black;
-    height: 30px;
+    height: 45px;
     margin: 10px;
-    padding: 5px;
+    padding: 0px 5px;
     border-radius: 5px;
 }
 
-::ng-deep .mat-select-value-text{
+::ng-deep .mat-select-value-text {
+    color: black;
+}
+
+::ng-deep .mat-form-field-type-mat-select .mat-form-field-label {
     color: black;
 }
