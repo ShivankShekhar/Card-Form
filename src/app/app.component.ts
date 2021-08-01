@@ -1,5 +1,6 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface CardData {
   imageId: string;
@@ -54,20 +55,14 @@ export class AppComponent {
     { number: "24" }, { number: "25" }, { number: "26" }
   ];
 
+  constructor(private _snackBar: MatSnackBar) { }
+
   padRight = function (input) {
     return input + new Array(16 - input.length + 1).join('#');
   }
 
-  getimg(){
-    console.log("get");
-    console.log(document.getElementsByName("cardTypeLogo"));
-    var img = new Image();
-     img.src = "../assets/chip.png";
-    document.getElementById("cardTypeLogo").appendChild(img);
-  }
-
-  validateInput(event: any,length:number,lenLimit:number=3) {
-    if ([46, 8, 9, 27, 13, 110, 190].indexOf(event.keyCode) !== -1 ||
+  validateInput(event: any, length: number, lenLimit: number) {
+    if ([46, 8, 9, 18, 17, 27, 13, 110].indexOf(event.keyCode) !== -1 ||
       // Allow: Ctrl+A
       (event.keyCode === 65 && (event.ctrlKey || event.metaKey)) ||
       // Allow: Ctrl+C
@@ -84,11 +79,15 @@ export class AppComponent {
     // Ensure that it is a number and stop the keypress
     if ((event.shiftKey || (event.keyCode < 48 || event.keyCode > 57)) && (event.keyCode < 96 || event.keyCode > 105) || length > lenLimit) {
       event.preventDefault();
+      if (length > lenLimit)
+        this.openSnackBar("Only " + (lenLimit + 1) + " digits allowed");
+      else
+        this.openSnackBar("Only Numbers allowed");
     }
   }
 
   validateStringInput(event: any) {
-    if ([46, 8, 9, 27, 13, 110, 190].indexOf(event.keyCode) !== -1 ||
+    if ([46, 8, 9, 16, 17, 20, 18, 27, 13, 110].indexOf(event.keyCode) !== -1 ||
       // Allow: Ctrl+A
       (event.keyCode === 65 && (event.ctrlKey || event.metaKey)) ||
       // Allow: Ctrl+C
@@ -103,8 +102,9 @@ export class AppComponent {
       return
     }
     // Ensure that it is a number and stop the keypress
-    if ( (event.keyCode < 65 || event.keyCode > 90) && event.keyCode!==32 ) {
+    if ((event.keyCode < 65 || event.keyCode > 90) && event.keyCode !== 32) {
       event.preventDefault();
+      this.openSnackBar("Only Strings allowed");
     }
   }
 
@@ -140,5 +140,9 @@ export class AppComponent {
       }
     }
     return payCardType;
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, "", { duration: 1000 });
   }
 }
