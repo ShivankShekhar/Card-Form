@@ -62,7 +62,7 @@ export class AppComponent {
   }
 
   validateInput(event: any, length: number, lenLimit: number) {
-    if ([46, 8, 9, 18, 27, 13, 110].indexOf(event.keyCode) !== -1 ||
+    if ([46, 8, 9, 18, 17, 27, 13, 110].indexOf(event.keyCode) !== -1 ||
       // Allow: Ctrl+A
       (event.keyCode === 65 && (event.ctrlKey || event.metaKey)) ||
       // Allow: Ctrl+C
@@ -87,7 +87,7 @@ export class AppComponent {
   }
 
   validateStringInput(event: any) {
-    if ([46, 8, 9, 16, 20, 18, 27, 13, 110].indexOf(event.keyCode) !== -1 ||
+    if ([46, 8, 9, 16, 17, 20, 18, 27, 13, 110].indexOf(event.keyCode) !== -1 ||
       // Allow: Ctrl+A
       (event.keyCode === 65 && (event.ctrlKey || event.metaKey)) ||
       // Allow: Ctrl+C
