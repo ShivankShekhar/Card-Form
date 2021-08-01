@@ -1,0 +1,170 @@
+:host {
+    display: block;
+    perspective: 600px;
+}
+
+.container {
+    box-shadow: 10px 10px 43px -18px rgba(0, 0, 0, 0.75);
+    text-align: center;
+    width: 600px;
+    border-radius: 10px;
+    background-color: white;
+    border: none;
+}
+
+.card {
+    box-shadow: 10px 10px 43px -18px rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+    height: 250px;
+    width: 450px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.chip {
+    height: 40px;
+    width: 50px;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.face {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    backface-visibility: hidden;
+    text-align: -webkit-center;
+    text-align-last: left;
+    > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+    }
+}
+
+.frontUpper {
+    display: flex;
+    margin: 25px 10px 10px 30px;
+}
+
+.frontMid {
+    width: 85%;
+    margin: 15px;
+    text-align-last: justify;
+}
+
+.frontLower {
+    display: flex;
+    padding: 5px 40px;
+}
+
+.cardHolder {
+    width: -webkit-fill-available;
+    padding: 5px;
+}
+
+.expire {
+    min-width: 80px;
+    padding: 5px;
+    text-align: justify;
+}
+
+.cardLabel {
+    font-variant-caps: small-caps;
+    color: white;
+}
+
+.backUpper {
+    margin: 25px 0px 3px 0px;
+    width: 100%;
+    background-color: black;
+    height: 2.5em;
+}
+
+.backMid {
+    width: 92%;
+    padding: 10px;
+    text-align-last: end;
+}
+
+.cvv {
+    background-color: white;
+    margin: 10px 0px;
+    border-radius: 4px;
+    padding: 5px;
+    min-height: 30px;
+}
+
+.backLower {
+    padding: 0px 20px;
+    float: right;
+}
+
+.cardimg {
+    height: 40px;
+    width: 70px;
+}
+
+.back {
+    transform: rotateY(180deg);
+    background-image: url(../assets/back.jpeg);
+    background-size: 450px 250px;
+}
+.front {
+    background-image: url(../assets/front.jpeg);
+    background-size: 450px 250px;
+}
+
+.input {
+    width: 95%;
+    color: black;
+    border: grey solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0px;
+}
+
+.cvvInput {
+    width: 70%;
+    color: black;
+    border: grey solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0px;
+}
+
+h3 {
+    margin: 0;
+    color: white;
+}
+
+.selected {
+    border: solid white;
+    border-radius: 3px;
+}
+
+button {
+    width: 95%;
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    color: white;
+}
+
+.dropdownStyle {
+    border: solid;
+    color: black;
+    height: 30px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+::ng-deep .mat-select-value-text{
+    color: black;
+}
