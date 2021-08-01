@@ -10,6 +10,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Run the application : `ng serve`
 - Navigate to `http://localhost:4200/`
 
+## Some Assumptions
+- cvv is 4 digit value
+- Card Holder contains only alphabets and space
+- Some images for card type may not be present
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
